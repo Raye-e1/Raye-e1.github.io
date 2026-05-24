@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+ <html lang="zh-CN">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>一份神秘礼物</title>
+     <style>
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+         body {
+             width: 100vw;
+             height: 100vh;
+             overflow: hidden;
+             background-color: #fff5f7;
+             position: relative;
+             font-family: "微软雅黑", sans-serif;
+             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M30 10C20 10 10 20 10 30s10 20 20 20 20-10 20-20-10-20-20-20zm45 25C55 25 45 15 35 15S15 25 15 35s10 20 20 20 20-10 20-20-10-20-20-20zm30 30C95 55 85 45 75 45s-20 10-20 20 10 20 20 20 20-10 20-20-10-20-20-20z' fill='%23ffccd5' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+         }
+         .to-box {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             background: linear-gradient(135deg, #ff99cc, #99ccff);
+             padding: 20px 30px;
+             border-radius: 20px;
+             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+             z-index: 999;
+             animation: showTo 2s ease-out forwards;
+         }
+         .to-text {
+             font-size: 24px;
+             font-weight: bold;
+             color: #fff;
+             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+         }
+         @keyframes showTo {
+             0% {
+                 opacity: 0;
+                 transform: translate(-50%, -50%) scale(0.5);
+             }
+             50% {
+                 opacity: 1;
+                 transform: translate(-50%, -50%) scale(1.1);
+             }
+             100% {
+                 opacity: 0;
+                 transform: translate(-50%, -50%) scale(0.8);
+             }
+         }
+         .cake {
+             position: absolute;
+             bottom: 20px;
+             right: 20px;
+             width: 80px;
+             height: 80px;
+             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 10C25 10 15 20 15 35v30h50V35C65 20 55 10 40 10zm0 15c10 0 15 5 15 15s-5 15-15 15-15-5-15-15 5-15 15-15zm25 30H15v-10h50v10z' fill='%23ffcccc'/%3E%3Cpath d='M40 10C25 10 15 20 15 35v30h50V35C65 20 55 10 40 10zm0 15c10 0 15 5 15 15s-5 15-15 15-15-5-15-15 5-15 15-15zm25 30H15v-10h50v10z' stroke='%23ff99bb' stroke-width='2' fill='none'/%3E%3Ccircle cx='25' cy='30' r='4' fill='%23ff6699'/%3E%3Ccircle cx='40' cy='25' r='5' fill='%23ff3377'/%3E%3Ccircle cx='55' cy='30' r='4' fill='%23ff6699'/%3E%3Cpath d='M20 45 L60 45' stroke='%23ff99bb' stroke-width='2'/%3E%3Cpath d='M25 50 L55 50' stroke='%23ff99bb' stroke-width='2'/%3E%3Cpath d='M30 55 L50 55' stroke='%23ff99bb' stroke-width='2'/%3E%3Cpath d='M35 60 L45 60' stroke='%23ff99bb' stroke-width='2'/%3E%3Cpath d='M15 75 L65 75' stroke='%23ff99bb' stroke-width='2'/%3E%3Ccircle cx='20' cy='75' r='2' fill='%23ffcc00'/%3E%3Ccircle cx='30' cy='75' r='2' fill='%23ffcc00'/%3E%3Ccircle cx='40' cy='75' r='2' fill='%23ffcc00'/%3E%3Ccircle cx='50' cy='75' r='2' fill='%23ffcc00'/%3E%3Ccircle cx='60' cy='75' r='2' fill='%23ffcc00'/%3E%3C/svg%3E");
+             z-index: 1;
+             opacity: 0.7;
+         }
+         .text-item {
+             position: absolute;
+             padding: 8px 12px;
+             border-radius: 16px;
+             color: #333;
+             font-size: 14px;
+             font-weight: 500;
+             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+             animation: float 6s infinite ease-in-out;
+             z-index: 2;
+             display: none;
+         }
+         @keyframes float {
+             0%, 100% {
+                 transform: translateY(0) rotate(0deg);
+                 opacity: 0.8;
+             }
+             50% {
+                 transform: translateY(-25px) rotate(3deg);
+                 opacity: 1;
+             }
+         }
+     </style>
+ </head>
+ <body>
+     <div class="to-box">
+         <div class="to-text">TO:袁梓柯👑🎉🎂🎁 </div>
+     </div>
+     <div class="cake"></div>
+ <script>
+     const warmTips = [
+       "岁岁安然","喜乐常伴","眉眼皆顺","万事顺遂","自在无忧","前程明朗","日子温柔","平安喜乐","步履生花","好运常驻","风华依旧","顺心如意","所得皆甜","岁岁欢愉","心境澄明","一路坦途","美好常在","元气满满","万事称心","自在从容","岁岁无忧","繁花相伴","所愿皆成","明媚向阳","生活尽兴","平安顺遂","神采飞扬","诸事圆满","温柔常伴","福气满满","岁岁平安喜乐","万事皆得圆满","日常温柔顺遂","岁岁常欢愉","前路光芒万丈","所愿皆能成真","日子自在舒心","好运时时相伴","心境明朗开阔","生活处处惊喜","眉眼始终明媚","岁岁安然无忧","一路顺风坦途","满心皆是欢喜","岁岁年年安康","日常皆有小幸","往后事事称心","芳华岁岁如初","轻松自在度日","美好如期而至"
+        ];
+     function createWarmTip() {
+         const item = document.createElement('div');
+         item.className = 'text-item';
+         item.textContent = warmTips[Math.floor(Math.random() * warmTips.length)];
+         // 调整位置逻辑，让左右分布更均匀
+         const randomLeft = Math.random() * 80; // 限制在80%以内，避免太靠右
+         item.style.left = randomLeft + 'vw';
+         item.style.top = Math.random() * 100 + 'vh';
+         item.style.backgroundColor = `hsl(${Math.random() * 360}, 60%, 90%)`;
+         item.style.fontSize = `${14 + Math.random() * 4}px`;
+         item.style.animationDelay = `${Math.random() * 4}s`;
+         item.style.animationDuration = `${6 + Math.random() * 6}s`;
+         document.body.appendChild(item);
+         setTimeout(() => {
+             item.style.display = 'block';
+         }, 2000);
+         setTimeout(() => {
+             item.remove();
+         }, 10000);
+     }
+     setTimeout(() => {
+         setInterval(createWarmTip, 400);
+     }, 100);
+ </script>
+ </body>
+ </html>  
