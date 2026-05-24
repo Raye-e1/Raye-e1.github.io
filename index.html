@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专属生日祝福</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 微软雅黑, sans-serif;
+        }
+        /* 霓虹流光背景 */
+        .bg-light {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #ff2e63, #08d9d6, #252a34);
+            opacity: 0.7;
+            animation: flash 3s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+        @keyframes flash {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(180deg); }
+        }
+        /* 主标题跳动发光 */
+        .main-title {
+            font-size: 50px;
+            color: #fff;
+            text-shadow: 0 0 8px #ff0080,0 0 20px #ff0080,0 0 40px #ff2e63;
+            animation: jump 1.2s infinite;
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+        @keyframes jump {
+            0%,100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.08); }
+        }
+        /* 祝福文字渐变 */
+        .bless-text {
+            font-size: 24px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 2.2;
+            text-shadow: 0 0 10px #4fd1c5;
+            animation: fade 2.5s infinite alternate;
+            z-index: 2;
+        }
+        @keyframes fade {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+        /* 飘落彩片样式 */
+        .flake {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-light"></div>
+    <h1 class="main-title">生日快乐 袁子柯🌹</h1>
+    <div class="bless-text">
+        新岁启封 万事胜意<br>
+        前程坦荡 喜乐无忧<br>
+        岁岁常欢愉 年年皆好运
+    </div>
+
+<script>
+// 生成随机飘落彩色光点
+const colors = ['#ff2e63','#08d9d6','#ffe066','#7b61ff','#36ff9a'];
+function createFlake(){
+    let flake = document.createElement('div');
+    flake.classList.add('flake');
+    flake.style.left = Math.random()*100 + 'vw';
+    flake.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+    flake.style.opacity = Math.random();
+    let size = Math.random()*8 + 4;
+    flake.style.width = size + 'px';
+    flake.style.height = size + 'px';
+    document.body.appendChild(flake);
+
+    // 下落动画
+    let speed = Math.random()*2 + 1;
+    let posY = -10;
+    function fall(){
+        posY += speed;
+        flake.style.top = posY + 'px';
+        if(posY > window.innerHeight){
+            flake.remove();
+        }else{
+            requestAnimationFrame(fall);
+        }
+    }
+    fall();
+}
+// 定时生成光点
+setInterval(createFlake,80);
+</script>
+</body>
+</html>
